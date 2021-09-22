@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,13 +18,9 @@ Route::get('/', function () {
     return view('shop.index');
 });
 
-Route::prefix('panel/admin')->group(function () {
-    
+Route::prefix('panel')->group(function () {
     Route::get('/', function () {
         return view('admin.index');
     });
-
-    Route::get('/category/add', function () {
-        return view('admin.category-add');
-    });
+    Route::resource('category', CategoryController::class)->except(['show']);
 });
