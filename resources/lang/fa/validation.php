@@ -30,7 +30,8 @@ return [
         'password_confirmation' => 'تایید کلمه عبور',
         'password' => 'کلمه عبور',
         'token' => 'توکن',
-        'code' => 'کد'
+        'code' => 'کد',
+        'title' => 'عنوان',
 
     ]
 ];
