@@ -60,7 +60,7 @@
                                 <td>{{ $category->created_at }}</td>
                                 <td class="">
                                     <a href="{{ route('category.edit',$category->id) }}" class="btn btn-default btn-icons"><i class="fa fa-edit"></i></a>
-                                    <form action="{{ route('category.destroy',$category->id) }}" method="post">
+                                    <form action="{{ route('category.destroy',$category->id) }}" method="post" style="display: inline">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-default btn-icons"><i class="fa fa-trash"></i></button>
