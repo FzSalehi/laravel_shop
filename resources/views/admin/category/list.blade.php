@@ -10,7 +10,7 @@
             <h1 class="m-0 text-dark">
                 <a class="nav-link drawer" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
                 دسته بندی ها
-                <a class="btn btn-primary float-left text-white py-2 px-4" href="category-add.php">افزودن دسته بندی جدید</a>
+                <a class="btn btn-primary float-left text-white py-2 px-4" href="{{ route('category.create')}}">افزودن دسته بندی جدید</a>
             </h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
