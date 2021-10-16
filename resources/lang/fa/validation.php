@@ -11,13 +11,17 @@ return [
     'confirmed' => ':attribute مطابقت ندارد.',
     'max' => [
         'string' => ':attribute حداکثر باید :max کاراکتر باشد.',
-        'integer' => ':attribute باید حداکثر :max عدد باشد.'
+        'integer' => ':attribute باید حداکثر :max عدد باشد.',
+        'numeric' => 'مقدار انتخاب شده از فیلد :attribute نباید بیشتر از :max باشد',
+        'file' => 'حجم فایل :attribute نباید بیشتر از :max باشد',
+        'array' => 'تعدادآیتم های انتخاب شده از فیلد :attribute نباید از :max بیشتر باشد',
     ],
     'min' => [
         'string' => ':attribute باید حداقل :min کاراکتر باشد.'
     ],
     'digits' => ':attribute باید :digits رقم باشد.',
     'numeric' => ':attribute باید به صورت عددی باشد.',
+    'mimes' => ':attribute  باید از نوع :values باشد',
 
 
     'attributes' => [
@@ -32,6 +36,9 @@ return [
         'token' => 'توکن',
         'code' => 'کد',
         'title' => 'عنوان',
-
+        'price' => 'قیمت',
+        'thumbnail_url' => 'تصویر شاخص',
+        'demo_url' => 'تصویر محصول',
+        'source_url' => 'سورس اصلی محصول',
     ]
 ];
