@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\admin\CategoryRequest;
 use App\Models\Category;
-use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -33,12 +32,12 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\admin\CategoryRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(CategoryRequest $request)
     {
-        $categoryIsCreated = Category::create($request->all());
+        $categoryIsCreated = Category::create($request->validated());
 
         if(!$categoryIsCreated){
             return back()->with('failed',__('category.not.created'));
@@ -62,13 +61,13 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\admin\CategoryRequest  $request
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
     public function update(CategoryRequest $request, Category $category)
     {
-        $category->update($request->all());
+        $category->update($request->validated());
 
         return redirect()->route('category.index')->with('success',__('category.updated'));
     }
