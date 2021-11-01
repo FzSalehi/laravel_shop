@@ -9,7 +9,9 @@ class ImageUploader
 {
     public static function upload($disk, $imageFile, $path)
     {
-        return Storage::disk($disk)->put($path, File::get($imageFile));
+        Storage::disk($disk)->put($path, File::get($imageFile));
+
+        return $path;
     }
 
     public static function multiUpload($disk, array $imageFiles, $basepath)
