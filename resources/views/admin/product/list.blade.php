@@ -56,23 +56,27 @@
                                     @foreach ($products as $product)
                                     <tr>
                                         <td>
-                                            <img src="{{ asset('admin/dist/img/user6-128x128.jpg') }}" class="product_img">
+                                            <img src="{{ asset($product->demoUrl()) }}" class="product_img">
                                             {{ $product->title}}
                                             </td>
                                         <td>{{ $product->category->title }}</td>
                                         <td>{{ $product->user->name ?? 'user not found' }}</td>
-                                        <td>{{ $product->description }}</td>
+                                        <td>{!! mb_substr($product->description,0,20,'utf-8').'...' !!}</td>
                                         <td>
-                                            <a href="#" class="btn btn-default btn-icons" title="لینک دمو"><i class="fa fa-link"></i></a>
+                                            <a href="{{ route('product.demo.download',$product->id) }}" class="btn btn-default btn-icons" title="لینک دمو"><i class="fa fa-link"></i></a>
                                         </td>
                                         <td>
-                                            <a href="#" class="btn btn-default btn-icons" title="لینک دانلود"><i class="fa fa-link"></i></a>
+                                            <a href="{{ route('product.source.download',$product->id) }}" class="btn btn-default btn-icons" title="لینک دانلود"><i class="fa fa-link"></i></a>
                                         </td>
                                         <td>{{ $product->price }}</td>
                                         <td>{{ $product->created_at }}</td>
                                         <td>
-                                            <a href="#" class="btn btn-default btn-icons"><i class="fa fa-edit"></i></a>
-                                            <a href="#" class="btn btn-default btn-icons"><i class="fa fa-trash"></i></a>
+                                            <a href="{{route('product.edit',$product->id)}}" class="btn btn-default btn-icons"><i class="fa fa-edit"></i></a>
+                                            <form action="{{ route('product.destroy',$product->id) }}" method="post" class="text-inline">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class="btn btn-default btn-icons"><i class="fa fa-trash"></i></button>
+                                            </form>
                                         </td>
                                         </tr>
                                     @endforeach
