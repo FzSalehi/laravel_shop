@@ -29,5 +29,8 @@ Route::prefix('panel')->group(function () {
 
     Route::resource('product', ProductController::class);
 
-    
 });
+
+Route::get('product/{product}/download/demo',[ProductController::class,'downloadDemo'])->name('product.demo.download');
+
+Route::get('product/{product}/download/source',[ProductController::class,'downloadSource'])->name('product.source.download');
